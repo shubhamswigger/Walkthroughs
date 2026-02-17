@@ -1,0 +1,48 @@
+This is For: 
+Kali Linux (VirtualBox)
+TryHackMe VPN
+OpenVPN CLI method
+
+STEP 1 — Start Kali Linux
+
+Boot your Kali VM in VirtualBox.
+Wait until desktop loads fully.
+
+STEP 2 — Download VPN File (Inside Kali)
+
+Open Firefox in Kali
+Go to: https://tryhackme.com/access 
+Select region: EU Ireland (any region works)
+
+Click Download VPN
+The file will download as something like: eu-west-1-{yourusername}-regular.ovpn
+It saves to: /home/kali/Downloads
+
+Open terminal in Kali.
+Go to Downloads folder:  $ cd ~/Downloads
+
+Check file exists: $ ls
+You should see: eu-west-1-{yourusername}-regular.ovpn  (The Same file as downloaded)
+
+Check if OpenVPN is Installed: $ openvpn --version
+If its not installed: $ sudo apt update
+                      $ sudo apt install openvpn -y
+
+Connect to TryHackMe VPN: $ sudo openvpn eu-west-1-{yourusername}-regular.ovpn
+
+STEP 6 — Confirm Connection
+If successful, you will see:     Initialization Sequence Completed
+                            
+ Important Note: The terminal will NOT return to prompt
+                 This is normal
+                 Leave this terminal open
+                 That means VPN is active.
+
+Step 7 - Verify VPN Interface
+Open a NEW terminal window.
+Run: $ ip a
+You should see: tun0
+If tun0 exists → VPN connected successfully.
+
+You are fully connected.
+                                                            
